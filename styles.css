@@ -1,0 +1,381 @@
+/* ============================================================
+   CIBERSEGURIDAD UNADISTA · Hoja de estilos
+   Colores: azul #0C4966 (principal) · naranja #E67016 (acciones) · amarillo #F4AF00 (resaltes)
+   ============================================================ */
+
+/* ---------- 1. VARIABLES DE COLOR (paleta institucional UNAD) ---------- */
+:root {
+  --azul: #0C4966;      /* color principal: títulos, fondos, nav */
+  --naranja: #E67016;   /* acciones: botones y hover */
+  --amarillo: #F4AF00;  /* resaltes e iconos */
+  --fondo: #f3f6f8;      /* fondo general de la página */
+  --correcto: #2e8b57;  /* respuesta correcta */
+  --error: #c0392b;      /* respuesta incorrecta */
+}
+
+/* ---------- 2. RESET Y BASE ---------- */
+* {
+  box-sizing: border-box;
+}
+body {
+  margin: 0;
+  font-family: 'Segoe UI',system-ui,sans-serif;
+  background: var(--fondo);
+  color: #1c2b33;
+  line-height: 1.6;
+}
+
+/* ---------- 3. ENCABEZADO: bandera UNAD (azul/naranja/amarillo), barra superior y progreso ---------- */
+.flag {
+  display: flex;
+  flex-direction: column;
+  height: 9px;
+}
+.flag i {
+  flex: 1;
+}
+.flag i:nth-child(1) {
+  background: var(--azul);
+}
+.flag i:nth-child(2) {
+  background: var(--naranja);
+}
+.flag i:nth-child(3) {
+  background: var(--amarillo);
+}
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: .7rem 1.2rem;
+  background: #fff;
+  box-shadow: 0 2px 8px #0001;
+  position: sticky;
+  top: 0;
+  z-index: 5;
+}
+.logo {
+  background: none;
+  border: 0;
+  font-size: 1.15rem;
+  font-weight: 700;
+  color: var(--azul);
+  cursor: pointer;
+}
+.progress {
+  height: 4px;
+  background: #dde5ea;
+}
+#bar {
+  height: 100%;
+  width: 0;
+  background: var(--naranja);
+  transition: width .4s;
+}
+main {
+  max-width: 980px;
+  margin: auto;
+  padding: 1.2rem;
+}
+
+/* ---------- 4. BOTONES ---------- */
+.btn {
+  background: var(--naranja);
+  color: #fff;
+  border: 0;
+  padding: .7rem 1.3rem;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  font-size: 1rem;
+  transition: .2s;
+}
+.btn:hover {
+  background: var(--azul);
+  transform: translateY(-2px);
+}
+.btn.sm {
+  padding: .4rem .9rem;
+}
+.btn.ghost {
+  background: var(--azul);
+}
+.btn.ghost:hover {
+  background: var(--naranja);
+}
+
+/* ---------- 5. TARJETAS Y TIPOGRAFÍA ---------- */
+.card {
+  background: #fff;
+  border-radius: 14px;
+  padding: 1.4rem;
+  margin-bottom: 1.2rem;
+  box-shadow: 0 4px 14px #0c49661a;
+  animation: in .4s;
+}
+@keyframes in {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+h1,h2,h3 {
+  color: var(--azul);
+  margin: .2rem 0 .6rem;
+}
+h3 {
+  border-left: 5px solid var(--amarillo);
+  padding-left: .6rem;
+}
+.crumb {
+  color: var(--naranja);
+  font-weight: 700;
+  font-size: .85rem;
+  text-transform: uppercase;
+  margin: 0;
+}
+
+/* ---------- 6. LAYOUT DE CONTENIDO: texto + imagen, fuentes ---------- */
+.row {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.2rem;
+  align-items: center;
+}
+.row img,.hero img {
+  width: 100%;
+  border-radius: 12px;
+  display: block;
+  box-shadow: 0 4px 14px #0003;
+}
+.src {
+  font-size: .85rem;
+  color: #556;
+  background: #fff8e1;
+  border-left: 4px solid var(--amarillo);
+  padding: .5rem .8rem;
+  border-radius: 6px;
+}
+.src a {
+  color: var(--azul);
+}
+
+/* ---------- 7. PANTALLA DE INICIO (hero y tarjetas de módulos) ---------- */
+.hero {
+  display: grid;
+  grid-template-columns: 1.1fr 1fr;
+  gap: 1.5rem;
+  align-items: center;
+  background: linear-gradient(135deg,var(--azul),#0a3347);
+  color: #fff;
+}
+.hero h1,.hero h3 {
+  color: #fff;
+}
+.hero li {
+  margin: .3rem 0;
+}
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(170px,1fr));
+  gap: 1rem;
+}
+.mod {
+  background: #fff;
+  border: 2px solid transparent;
+  border-top: 6px solid var(--amarillo);
+  border-radius: 12px;
+  padding: 1rem;
+  cursor: pointer;
+  text-align: left;
+  font: inherit;
+  box-shadow: 0 4px 12px #0c49661a;
+  transition: .2s;
+}
+.mod:hover {
+  border-color: var(--naranja);
+  border-top-color: var(--naranja);
+  transform: translateY(-4px);
+}
+.mod b {
+  color: var(--azul);
+  display: block;
+}
+.mod span {
+  font-size: 2rem;
+}
+
+/* ---------- 8. ACTIVIDADES: quiz, tarjetas volteables, pestañas, generador, checklist, slider ---------- */
+.opt {
+  display: block;
+  width: 100%;
+  text-align: left;
+  margin: .35rem 0;
+  padding: .6rem .9rem;
+  border: 2px solid #d5dee3;
+  background: #fff;
+  border-radius: 8px;
+  cursor: pointer;
+  font: inherit;
+  transition: .2s;
+}
+.opt:hover:not(:disabled) {
+  border-color: var(--naranja);
+  background: #fff3e8;
+}
+.opt.ok {
+  border-color: var(--correcto);
+  background: #e6f6ec;
+}
+.opt.bad {
+  border-color: var(--error);
+  background: #fdeaea;
+}
+.fb {
+  font-size: .92rem;
+  color: var(--azul);
+  margin: .2rem 0 1rem;
+}
+.cards {
+  display: grid;
+  grid-template-columns: repeat(auto-fit,minmax(200px,1fr));
+  gap: 1rem;
+}
+.flip {
+  perspective: 800px;
+  height: 160px;
+  cursor: pointer;
+}
+.in {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  transition: .6s;
+  transform-style: preserve-3d;
+}
+.flip.on .in {
+  transform: rotateY(180deg);
+}
+.f,.bk {
+  position: absolute;
+  inset: 0;
+  backface-visibility: hidden;
+  border-radius: 12px;
+  padding: 1rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  font-size: .95rem;
+}
+.f {
+  background: var(--azul);
+  color: #fff;
+  font-weight: 700;
+  font-size: 1.1rem;
+}
+.bk {
+  background: var(--amarillo);
+  color: #222;
+  transform: rotateY(180deg);
+}
+.tabs {
+  display: flex;
+  gap: .5rem;
+  flex-wrap: wrap;
+}
+.tabs .on {
+  background: var(--azul);
+}
+.tc {
+  background: #eef4f7;
+  border-radius: 10px;
+  padding: 1rem;
+  margin-top: .8rem;
+  min-height: 70px;
+}
+.pass {
+  font: 700 1.3rem monospace;
+  color: var(--azul);
+  background: #eef4f7;
+  padding: .7rem;
+  border-radius: 8px;
+  word-break: break-all;
+}
+input[type=text] {
+  width: 100%;
+  padding: .7rem;
+  border: 2px solid #d5dee3;
+  border-radius: 8px;
+  font-size: 1rem;
+  margin: .4rem 0;
+}
+.meter {
+  height: 12px;
+  background: #e2e8ec;
+  border-radius: 6px;
+  overflow: hidden;
+}
+.meter i {
+  display: block;
+  height: 100%;
+  width: 0;
+  transition: .3s;
+}
+.chk {
+  display: flex;
+  gap: .6rem;
+  align-items: center;
+  padding: .5rem;
+  border-radius: 8px;
+  cursor: pointer;
+}
+.chk:hover {
+  background: #fff3e8;
+}
+.chk input {
+  accent-color: var(--naranja);
+  width: 20px;
+  height: 20px;
+}
+input[type=range] {
+  width: 100%;
+  accent-color: var(--naranja);
+}
+
+/* ---------- 9. NAVEGACIÓN, REFERENCIAS Y PIE DE PÁGINA ---------- */
+.nav {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  margin: 1rem 0;
+}
+pre {
+  white-space: pre-wrap;
+  background: #0C4966;
+  color: #fff;
+  padding: 1rem;
+  border-radius: 8px;
+}
+ul.ref li {
+  margin: .6rem 0;
+  padding-left: 1.5em;
+  text-indent: -1.5em;
+}
+footer {
+  text-align: center;
+  padding: 1.5rem;
+  color: #fff;
+  background: var(--azul);
+  margin-top: 2rem;
+}
+
+/* ---------- 10. RESPONSIVE (móviles) ---------- */
+@media(max-width:700px) {
+  .row,.hero {
+    grid-template-columns: 1fr;
+  }
+  .logo span {
+    font-size: .95rem;
+  }
+}
